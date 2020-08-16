@@ -1,0 +1,52 @@
+{% extends "clients/layout.njk" %}
+
+  {% block head %}
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="/styles/clients.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% endblock %}
+
+{% block content %}
+
+  <div id="page-clients">
+    
+    <main>
+
+      <form action="/clients?_method=PUT" method="POST" id="create-client">
+        <fieldset>
+          <legend>Editar os dados</legend>
+          {% include 'clients/fields.njk' %}
+          <input type="hidden" name="id" value="{{client.id}}">
+        </fieldset>
+      </form>
+
+      <fieldset>
+        <form id="form-delete" action="/clients?_method=DELETE" method="post">
+          <input type="hidden" name="id" value="{{client.id}}">
+          <button type="submit">Deletar
+            <span class="material-icons">
+              delete
+            </span>
+          </button>
+        </form>
+      </fieldset>
+
+    </main>
+    
+    <script>
+      const formDelete = document.querySelector('#form-delete');
+
+      formDelete.addEventListener("submit", (event) => {
+        const confirmation = confirm("Deseja deletar")
+        if(!confirmation) {
+          event.preventDefault();
+        }
+      })
+    </script>
+  </div><!--container-->
+
+{% endblock content %}

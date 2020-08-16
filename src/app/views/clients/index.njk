@@ -1,0 +1,85 @@
+{% extends "layout.njk" %}
+
+  {% block head %}
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="/styles/clients.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% endblock %}
+
+{% block content %}
+
+  <div id="page-clients">
+    
+    <header class="page-header">
+      <div class="top-bar-container">
+        <a href="/">
+          <span class="material-icons">
+            keyboard_backspace
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <form action="" id="create-client">
+          <fieldset>
+          <legend>Digite os dados</legend>
+
+          <div class="input-block">
+            <label for="name">Nome completo</label>
+            <input name="name" id="name" require>
+          </div>
+
+          <div class="input-block">
+            <label for="avatar">Link da sua foto <small>(comece com https://)</small></label>
+            <input name="avatar" id="avatar" type="url" require>
+          </div>
+
+          <div class="input-block">
+            <label for="phone">Telefone</label>
+            <input name="phone" id="phone" type="number" require>
+          </div>
+
+          <div class="select-block">
+            <label for="gender">Sexo</label>
+            <select name="gender" id="gender">
+              <option value="" hidden>Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Famenino</option>
+            </select>
+          </div>
+
+          <div class="input-block">
+            <label for="services">Serviços</label>
+            <input name="services" id="services" type="text" require>
+          </div>
+
+  
+
+          <div class="textarea-block">
+            <label for="bio">Sobre</label>
+            <textarea name="bio" id="bio" require></textarea>
+          </div>
+
+        </fieldset>
+
+       <div class="button-container">
+          <button type="submit" form="create-client">
+            Salvar cadastro
+          <span class="material-icons">
+            arrow_forward
+          </span>
+          </button>
+     
+       </div>
+
+      </form>
+    </main>
+    
+  </div><!--container-->
+
+{% endblock content %}

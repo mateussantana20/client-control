@@ -1,0 +1,31 @@
+{% extends "clients/layout.njk" %}
+
+  {% block head %}
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="/styles/clients.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% endblock %}
+
+{% block content %}
+
+  <div id="page-clients">
+    
+    <main>
+      <form action="/clients" method="POST" id="create-client">
+          <fieldset>
+          <legend>Digite os dados</legend>
+
+
+          {% include 'clients/fields.njk' %}
+
+        </fieldset>
+      </form>
+    </main>
+    
+  </div><!--container-->
+
+{% endblock content %}

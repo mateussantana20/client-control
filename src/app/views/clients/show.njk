@@ -1,0 +1,79 @@
+{% extends "clients/layout.njk" %}
+
+  {% block head %}
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="/styles/clients.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% endblock %}
+
+{% block content %}
+
+  <div id="page-clients">
+    <main>
+      <form action="" id="create-client">
+          <fieldset>
+          <legend>Detalhes</legend>
+
+          <div class="input-block">
+            <label for="name">Nome completo</label>
+            <div class="input-show"> {{client.name}}</div>
+          </div>
+
+          <div class="input-block">
+            <label for="avatar">Link da sua foto</label>
+            <div class="input-show">{{client.avatar}}</div>
+          </div>
+
+          <div class="input-block">
+            <label for="phone">Telefone</label>
+            <div class="input-show" >{{client.phone}}</div>
+          </div>
+
+          <div class="input-block">
+            <label for="phone">Idade</label>
+            <div class="input-show" >{{client.age}}</div>
+          </div>
+
+          <div class="select-block">
+            <label for="gender">Sexo</label>
+            <div class="input-show" >{{client.gender}}</div>
+          </div>
+
+          <div class="input-block">
+            <label for="services">Serviços</label>
+            <div class="input-show services" >
+              {% for service in  client.services%}
+                <span>{{service}}</span>
+              {%endfor%}
+            </div>
+          </div>
+
+          <div class="textarea-block">
+            <label for="bio">Sobre</label>
+            <div class="input-show" >{{client.bio}}</div>
+          </div>
+
+           <div class="select-block">
+            <label for="created_at">Desde</label>
+            <div class="input-show" >{{client.created_at}}</div>
+          </div>
+
+          <a href="/clients/{{client.id}}/edit">
+            Editar cadastro
+          <span class="material-icons">
+            arrow_forward
+          </span>
+          </a>
+
+        </fieldset>
+
+      </form>
+    </main>
+    
+  </div><!--container-->
+
+{% endblock content %}

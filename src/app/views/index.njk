@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="table">
+      <header>
+        <div class="leftHeaderName" >
+          <p>Seus Clientes</p>
+        </div>
+    
+        {# <form action="/" method="GET" class="search">
+          <button type="submit" class="material-icons">
+            search
+            </button>
+          <input
+            type="text"
+            placeholder="Pesquise por clientes"
+            name="search"
+          >
+        </form> #}
+
+        <form action="/dashboard" method="GET">
+          <input 
+            type="text" 
+            name="filter" 
+            placeholder="Filtrar por Nome"
+          >
+        <button class="material-icons" type="submit">search</button>
+      </form>
+    
+        <div class="button">
+          <a href="/clients/create"  type="button">Novo cliente</a>
+        </div>
+      </header>
+
+      <div class="content">
+        <p>{{clients.length}} resultados</p>
+
+        <div class="clients-container">
+
+          {%for client in clients%}
+            <div class="client-single">
+              <div class="box">
+                <div class="img-container">
+                  <img src="{{client.avatar}}" alt="">
+                </div>
+                <p>{{client.name}}</p>
+              </div><!--box-->
+
+              <a
+                href="/clients/{{client.id}}"
+                class="open-modal"
+              >
+                <span class="material-icons">settings</span>
+                {# <span class="material-icons">more_vert</span> #}
+              </a>
+
+            </div><!--client-single-->
+
+          {%endfor%}  
+
+        </div><!--clients-container-->
+
+      </div><!--content-->
+
+      <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}}
+        data-filter={{filter}}
+      ></div>
+    </main>
+
+  
+<script src="script.js"></script>
+</body>
+</html>

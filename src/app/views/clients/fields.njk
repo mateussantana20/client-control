@@ -1,0 +1,92 @@
+<div class="input-block">
+    <label for="name">Nome completo</label>
+    <input
+      name="name"
+      id="name"
+      require
+      value="{{client.name}}"
+    >
+  </div>
+
+  <div class="input-block">
+    <label for="avatar">Link da sua foto <small>(comece com https://)</small></label>
+    <input
+      name="avatar"
+      id="avatar"
+      type="url"
+      require
+      value="{{client.avatar}}"
+    >
+  </div>
+
+  <div class="input-block">
+    <label for="phone">Telefone</label>
+    <input
+      name="phone"
+      id="phone"
+      type="number"
+      require
+      value="{{client.phone}}"
+      placeholder="Ex 98999999999" 
+    >
+  </div>
+
+  <div class="input-block">
+    <label for="birth">Data de nascimento</label>
+    <input
+      name="birth"
+      id="birth"
+      type="date"
+      require
+      value="{{client.birth}}"
+    >
+  </div>
+
+
+  <div class="select-block">
+    <label for="gender">Sexo</label>
+    <select name="gender" id="gender">
+      <option value="" hidden>Selecione</option>
+
+      <option
+        value="M"
+        {% if client.gender == "M" %}
+          selected
+        {% endif %} >Masculino
+      </option>
+      
+      <option
+        value="F"  
+        {% if client.gender == "F" %}
+          selected
+        {% endif %}>Faminino</option>
+    </select>
+  </div>
+
+  <div class="input-block">
+    <label for="services">Serviços</label>
+    <input 
+      placeholder="Separe os serviços por vírgula"
+      name="services"
+      id="services"
+      type="text"
+      require
+      value="{{client.services}}"
+    >
+  </div>
+
+  <div class="textarea-block">
+    <label for="bio">Sobre</label>
+    <textarea 
+      placeholder="Digite um pouco sobre você" 
+      name="bio"
+      id="bio" 
+      require>{{client.bio}}</textarea>
+  </div>
+  
+{# <div class="button-container"> #}
+  <button type="submit" form="create-client">
+    Salvar
+    <span class="material-icons">arrow_forward</span>
+  </button>
+{# </div><!--button-container--> #}

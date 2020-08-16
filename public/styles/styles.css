@@ -1,0 +1,220 @@
+
+:root {
+  --color-background: #27213F;
+  --color-background-header: #383152;
+  --color-text-header: #A5ADAF;
+  --color-input-header: #E5F5FE;
+  --color-text-base: #fff;
+
+  /*16px 100% 1rem*/
+  font-size: 60%; /* controle das medidas rem */
+}
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+main header .leftHeaderName p {
+  font-size: 2.4rem;
+  padding: 0.8rem;
+  color: #f7527c;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+main header .leftHeaderName p:hover {
+  color: #FFF;
+}
+
+main header .leftHeaderName p::after {
+  content: "";
+  width: 0;
+  height: 0.3rem;
+  background-color: #f7527c;
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  transition: width 0.6s;
+} 
+
+main header .leftHeaderName p:hover::after {
+  width: 100%;
+}
+
+
+
+/*Main*/
+/*Header*/
+header {
+  background-color: var(--color-background-header);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.2rem;
+  width: 100%;
+  text-align: center;
+}
+
+header div:nth-child(2) {
+  font-size: 2.4rem;
+  color: var(--color-text-header);
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+header form button {
+  background: transparent;
+  color: #f7527c;
+  cursor: pointer;
+}
+
+header form {
+  background-color:#6A657A;
+  color: #A5ADAF;
+  padding: 0.8rem;
+  height: 4.2rem;
+  border-radius: 0.8rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+header form input {
+  max-width: 20rem;
+  width: 100%;
+  padding-left: 0.8rem;
+  background-color: transparent;
+}
+
+header form input::placeholder{
+  color: #A5ADAF;
+}
+
+div.button a {
+  background-color: #27213F;
+  padding: 1.4rem 3.2rem;
+  max-width: 200px;
+  height: 4.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  color: #f7527c;
+  text-decoration: none;
+
+  transition: transform ease 0.2s;
+  /* box-shadow: 0px 25px 57px 0px rgba(0, 0, 0, 0.25); */
+}
+
+div.button a:hover {
+  transform: translateY(-5px);
+  color: #fff;
+  /* box-shadow: 0px 25px 57px 0px rgba(0, 0, 0, 0.40); */
+}
+
+/*Clientes*/
+.content {
+  padding: 4rem;
+}
+
+.content p {
+  color: #6A657A;
+}
+
+.clients-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2.8rem;
+}
+
+.client-single {
+  background: #282240;
+  box-shadow: 0px 30px 62px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0.8rem;
+  padding: 2.4rem;
+  margin-top: 1.8rem;
+  position: relative;
+}
+
+.client-single a {
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  color: #f7527c;
+    /* color: #6A657A; */
+  transition: color 0.2s ease-in-out;
+}
+
+.client-single a:hover{
+  color: #fff;
+}
+
+.img-container {
+  /* padding: 8px; */
+  border: 2px solid #f7527c;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1.8rem;
+}
+
+.client-single .box img {
+  padding: 0.8rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.client-single .box p {
+  color: #6A657A;
+  text-align: center;
+}
+
+
+/*Paginations*/
+
+main.table {
+  display: grid;
+  grid-template-rows: 64px 1fr 16px / 1fr;
+}
+
+.pagination {
+  margin: 0;
+  align-self: end;
+  justify-self: center;
+  /* text-align: center; */
+}
+
+.pagination a, 
+.pagination span {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #f7527c;
+  text-decoration: none;
+  margin-right: 1.6rem;
+}
+
+.pagination a:hover {
+  filter: brightness(0.3);
+  /* border-bottom: 1px solid #f7527c; */
+}
+
+
+@media (max-width: 900px) {
+  .clients-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2.8rem;
+  }
+}
